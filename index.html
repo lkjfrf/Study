@@ -3,11 +3,56 @@
 <head>
     <meta charset="utf-8">
     <title>Page Title</title>
-    안녕
-    
 
+    <style>
+        #header h1{color:red;}
+        #section h1:hover, #section h2:active {color:orange;}
+
+        input[type=checkbox]:checked + #for {
+            height: 0px;
+        }
+
+        #for{
+            overflow: hidden;
+            background: green;
+            height: 300px;
+            widows: 600px;
+            }
+
+            
+
+    
+    </style>
+
+
+    
 </head>
 <body>
+
+    <div id="header">
+        <h1 class="title">해더 class=title</h1>
+        <div id="nav">
+            <h1>id=nav</h1>
+            <p>hh</p>
+        </div>
+    </div>
+
+    <div id="section">
+        <h1 class="title">섹션 class=title</h1>
+        <div id="nav">
+            <h1>마우스 올릴시</h1>
+            <h2>클릭시</h2>
+            <input type="text" disabled = "disabled">
+            
+        </div>
+    </div>
+
+    <input type="checkbox">
+            <div id="for">
+                    <h1>Lorem ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+    
     
 </body>
 </html>

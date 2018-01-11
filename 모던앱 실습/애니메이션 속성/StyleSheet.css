@@ -5,12 +5,12 @@ body { position: relative; }
     width: 200px; height: 200px;
     border-radius: 100px;
     text-align: center;
-    background: linear-gradient(top, #cb60b3 0%, #db36a4 100%);
+    background: linear-gradient(#cb60b3 0%, #db36a4 100%);
 
     animation-name: rint;
     animation-duration: 2s;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation-direction: normal;
     animation-timing-function: linear;
 }
 
@@ -30,4 +30,8 @@ body { position: relative; }
         left: 500px;
         transform: rotate(360deg);
     }
+}
+
+#box:hover{
+    animation-play-state: paused;
 }

@@ -33,19 +33,34 @@
             */
 
             // 풀이 전 코드
+
+            var $fish = null;
             $(document).ready(function() {
+                init();
+                initEvent();
 
+
+            });
+
+            function init(){
                 // 물고기 노드 구하기.
-                var $fish = $("#fish");
+                $fish = $("#fish");
+            }
 
+            function initEvent(){
                 // 버튼에 이벤트 걸기.
                 $("#btnStart").click(function() {
 
-                    // 물고기 움직이기.
                     // 물고기 위치 값 구하기
                     var x = parseInt($("#txtX").val());
                     var y = parseInt($("#txtY").val());
 
+                    // 물고기 움직이기
+                    move(x,y);
+                });
+            }
+            
+            function move(x,y){
                     if ((x >= 0 && x <= 500) && y >= 0 && y <= 300) {
 
                         $fish.css({
@@ -57,8 +72,8 @@
 
                         alert("입력된 값이 너무 큽니다. 다시 입력해주세요.");
                     }
-                });
-            })
+            }
+
 
         </script>
     </head>

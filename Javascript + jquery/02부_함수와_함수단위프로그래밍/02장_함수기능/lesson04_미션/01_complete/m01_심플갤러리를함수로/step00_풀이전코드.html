@@ -51,32 +51,60 @@
              $img0.css({left:이동위치, top:이동위치});
 
          */
-        $(document).ready(function() {
 
+        var $images = null;
+        var length = null;
+
+        $(document).ready(function() {
+            //요소 초기화
+            init();
+
+            //이벤트 초기화
+            initEvent();
+
+        });
+
+        function init(){
             // 이미지 찾기.
-            var $images = $("#container1 img");
+            $images = $("#container1 img");
+
+            // 이미지 개수 구하기.
+            length = $images.length;
             
+            //맨처음 호출
+            showGallery(2,200,200);
+
+        }
+
+        function initEvent(){
+
             $("#btnStart").click(function(){
-                // 이미지 개수 구하기.
-                var length = $images.length;
+                //버튼클릭시 실행되는 함수
+                showGallery(3,150,150);
     
+            });
+        
+        }
+
+        function showGallery(count,width,height){
                 // 이미지 배열하기.
                 for (var i = 0; i < length; i++) {
                     // n번째 이미지 구하기
                     var $img = $images.eq(i);
     
                     // 위치 값 구하기
-                    var x = 100 + ((i % 3) * 200);
-                    var y = 100 + (parseInt(i / 3) * 200);
+                    var x = 100 + ((i % count) * width);
+                    var y = 100 + (parseInt(i / count) * height);
     
                     // 위치 설정
-                    $img.css({
+                    $images.eq(i).css({
                         left : x,
                         top : y
                     });
                 }
-            });
-        });
+        }
+            
+
     </script>
 </head>
 

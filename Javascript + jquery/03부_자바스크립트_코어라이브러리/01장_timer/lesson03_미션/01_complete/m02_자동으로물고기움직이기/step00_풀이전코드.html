@@ -52,55 +52,104 @@
 				- $물고기를 움직이는 방법은 물고기.css("left", 위치값)를 해주면 된답니다.
 
 		*/
-		$(document).ready(function(){
-			//물고기 노드 구하기.
-			var $fish = $("#fish");
+		var $fish = null;
+            // 물고기가 한번에 움직일 거리
+            var step = 50;
+            var timerID = 0;
 
-			// 물고기가 한번에 움직일 거리
-			var step = 50;
+            $(document).ready(function() {
+                init();
+                initEvent();
+            });
+
+            // 요소 초기화
+            function init() {
+                //물고기 노드 구하기.
+                $fish = $("#fish");
+            }
+
+		function init(){
+			//물고기 노드 구하기.
+			$fish = $("#fish");
+		}
+
+		function initEvent(){
 
 			$("#btnStart").click(function(){
-				// 다음 물고기 위치
-				var x = $fish.position().left+step;
-
-				// 물고기 위치가 430을 넘는 경우, 물고기 이동방향을 뒤쪽으로 변경 해줌
-				if(x>=430){
-				x=430;
-				$fish.attr("src","fish2.png");
-					step=-50;
-				}
-
-				// 물고기 위치가 50보다 작은 경우, 물고기 이동방향을 앞쪽으로 변경 해줌
-				if(x<50){
-					x=50;
-					$fish.attr("src","fish1.png");
-					step=50;
-				}
-			   // 물고기 위치 설정
-				$fish.css("left", x);
-
+				//물고기 움직이기 함수
+				start();
 			});
 
 			$("#btnStop").click(function(){
+				//물고기 멈추기 함수
+				stop();
+
+			});
+		}
 
 
-			})
-		});
+
+
+			// 물고기 움직이기 타이머 실행
+            function start() {
+
+                if (timerID == 0) {
+                    timerID = setInterval(function() {
+
+                        // 물고기 움직이기
+                        moveFish();
+
+                    }, 100);
+                }
+            }
+
+			function stop(){
+				clearInterval(timerID);
+				timerID = 0;
+			}
+
+			// 물고기 움직이기
+            function moveFish() {
+                // 다음 물고기 위치
+                var x = $fish.position().left + step;
+
+                // 물고기 위치가 430을 넘는 경우, 물고기 이동방향을 뒤쪽으로 변경 해줌
+                if (x >= 430) {
+                    x = 430;
+                    $fish.attr("src", "fish2.png");
+                    step = -50;
+                }
+
+                // 물고기 위치가 50보다 작은 경우, 물고기 이동방향을 앞쪽으로 변경 해줌
+                if (x < 50) {
+                    x = 50;
+                    $fish.attr("src", "fish1.png");
+                    step = 50;
+                }
+                // 물고기 위치 설정
+                $fish.css("left", x);
+            }
+
+
 
 	</script>
 </head>
 
 <body>	
-<div> 		
-	<div id="panel">
-		<img src="fish1.png" id="fish">
-		<div id="bar"> </div>								
-	</div>
-	
-	<div id="nav">
-		<button id="btnStart">시작</button>
-		<button id="btnStop">멈춤</button>
-	</div>
+		<div>
+				<div id="panel">
+					<div id="bar"> </div>
+					<img src="fish1.png" id="fish">
+				</div>
+				<div id="nav">
+					<button id="btnStart">
+						시작
+					</button>
+					<button id="btnStop">
+						멈춤
+					</button>
+				</div>
+			</div>
 </div>
        
 </body>

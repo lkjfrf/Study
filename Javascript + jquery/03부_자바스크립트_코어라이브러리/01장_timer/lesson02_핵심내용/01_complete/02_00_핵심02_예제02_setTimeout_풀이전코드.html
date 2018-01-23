@@ -27,12 +27,17 @@
 
     <script>
         // 예제02: 3초 후에 “안녕하세요. 환영합니다.” 메시지를 화면에 출력해 주세요.
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             var $output = $("#output");
 
+           
             // 여기에 풀이를 입력해주세요.
-        });
+            setTimeout(function() {
+                $output.html("안녕하세요.환영합니다.");
+                
+            },3000)
+        })
 
     </script>
 

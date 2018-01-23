@@ -11,10 +11,18 @@
          콜백 함수를 이용해 분리해 주세요.
          */
         $(document).ready(function() {
-            checkCount();
+            checkCount(message1);
+            checkCount(message2);
         });
 
-        function checkCount(){
+        function message1(){
+            alert("완료되었습니다.");
+        }
+        function message2(){
+            alert("완료됨ㅇㅇ.");
+        }
+
+        function checkCount(callback){
             var count=0;
             $("#btnStart").click(function(){
                 count++;

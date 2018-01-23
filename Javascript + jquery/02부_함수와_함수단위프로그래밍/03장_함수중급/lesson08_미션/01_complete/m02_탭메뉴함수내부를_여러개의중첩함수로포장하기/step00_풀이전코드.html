@@ -65,12 +65,19 @@
 			// 선택 한 탭메뉴를 저장할 변수
 			var $selectMenuItem =null;
 
+			function init(selector){
 			// 요소 초기화
 			$tabMenu = $(selector);
 			$menuItems = $tabMenu.find("li");
+			}
+			
 
+			function initEvent(){
 			// 메뉴 항목에 클릭 이벤트 등록
 			$menuItems.click(function(){
+
+				setSelectItem($(this));
+				
 				// 기존 선택 메뉴 항목이 있으면 비선택 상태로 만들기
 				if($selectMenuItem!=null){
 					$selectMenuItem.removeClass("select");
@@ -81,6 +88,7 @@
 				// 선택 상태로 만들기
 				$selectMenuItem.addClass("select");
 			})
+			}
 		}
 
 	</script>

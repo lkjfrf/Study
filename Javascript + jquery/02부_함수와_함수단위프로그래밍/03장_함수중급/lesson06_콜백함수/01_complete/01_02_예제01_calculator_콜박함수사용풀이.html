@@ -12,7 +12,7 @@
          콜백함수 사용풀이
          */
 
-        function calculator(op, num1, num2, callback){
+        function calculator(op, num1, num2, wow){
             var result="";
 
             switch(op) {
@@ -33,7 +33,7 @@
                     result = "지원하지 않는 연산자입니다";
             }
 
-            callback(result);
+            wow(result);
         }
 
         function print1(result){

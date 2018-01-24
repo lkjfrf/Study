@@ -32,6 +32,14 @@
 
             function clock() {
                 // 여기에 풀이를 입력해주세요.
+                setInterval(function(){
+                    var objDate = new Date();
+                    var hours = objDate.getHours();
+                    var minutes = objDate.getMinutes();
+                    var seconds = objDate.getSeconds();
+                    var time = hours + ":" + minutes + ":" + seconds;
+                    $clock.html(time);
+                },500)
 
             }
 

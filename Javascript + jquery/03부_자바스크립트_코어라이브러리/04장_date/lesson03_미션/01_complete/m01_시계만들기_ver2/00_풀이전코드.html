@@ -33,13 +33,20 @@
 
             function clock() {
                 // 여기에 풀이를 입력해주세요.
+                function addZero(value){
+                    if(value < 10){
+                        value ="0"+value;
+                    }
+                    return value;
+                    
+                }
 
                 // 현재 시간 출력
                 function showTime() {
                     var objDate = new Date();
-                    var hours = objDate.getHours();
-                    var minutes = objDate.getMinutes();
-                    var seconds = objDate.getSeconds();
+                    var hours = addZero(objDate.getHours());
+                    var minutes = addZero(objDate.getMinutes());
+                    var seconds = addZero(objDate.getSeconds());
 
                     var time = hours + ":" + minutes + ":" + seconds;
                     $clock.html(time);

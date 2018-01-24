@@ -21,7 +21,7 @@
                 text-align: center;
             }
 
-        </style>
+        </style>    
 
         <script src="../../../libs/jquery-1.11.0.min.js"></script>
 
@@ -39,11 +39,62 @@
                 })
             });
 
-            // 앞쪽 공백문자를 제거하는 함수
+            // 왼쪽 공백문자를 제거하는 함수
             function ltrim(str) {
                 // 여기에 소스를 입력해주세요.
 
+                //문자열값이 없는 경우
+                if(str.length <= 0)
+                    return str;
+
+                //첫번째 문자가 공백이 아니라면
+                var firsthCh = str.charAt(0);
+                if(firsthCh != "_")
+                    return str;
+
+                //공백이 끝날때까지 찾기
+                for(var index=1;index<str.length;index++){
+                    var ch = str.charAt(index);
+
+                    if(ch != "_"){
+                        break;
+                    }
+                }
+
+                var result = str.substr(index,str.length);
+                return result;
             }
+
+            //오른쪽 공백문자를 제거하는 함수
+
+            function rtrim(str){
+
+                //문자열값이 없는 경우
+                if(str.length <= 0)
+                    return str;
+
+
+                //마지막 문자가 공백이 아니라면
+                var firsthCh = str.charAt(str.length-1);
+                if(firsthCh != "_")
+                    return str;
+
+
+                //공백이 끝날때까지 찾기
+                for(var index=str.lnegth-1;index>=0;index--){
+                    var ch = str.charAt(index);
+
+                    if(ch != "_"){
+                        break;
+                    }
+                }
+
+                var result = str.substr(index,str.length);
+                return result;
+
+            }
+
+
 
         </script>
     </head>

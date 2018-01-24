@@ -53,34 +53,86 @@
 
 
         */
-        $(document).ready(function(){
+
+
             // 점수 변수
             var count=0;
+            var $score = null;
+            var playing = false;
+            var $fish = null;
+            var panelWidth = 600;
+            var panelHeight = 400;
+            var fishWidth = 120;
+            var fishHeight = 70;
+            var timerID = 0;
 
-            // 점수를 출력할 요소
-            var $score = $("#score");
 
-            // 여기에 코드를 입력해주세요.
-            // 게임 진행 유무 판단 변수
-            var playing=true;
-            // 물고기에 클릭 이벤트 등록
-            $("#fish").click(function(){
+        $(document).ready(function(){
 
-                if(playing==true){
-                    // 점수 증가
-                    count++;
-                    $score.html(count);
-                }
-            });
+            //요소초기화
+            init();
 
-            // 게임을 5초후에 종료시켜 줍니다.
-            setTimeout(function(){
-                playing=false;
-                alert("게임이 종료 되었습니다.")
-            },5000)
+            //이벤트초기화
+            initEvent();
+
 
         });
 
+        function init(){
+            $score = $("#score");
+            $fish = $("#fish");
+        }
+
+        function initEvent(){
+            $("#start").click(function(){
+                startGame();
+            });
+            $("#fish").click(function(){
+                addScore();
+            });
+        }
+
+        function startGame(){
+            if(playing==false){
+
+                endGame();
+
+                playing = true;
+                timerID = setInterval(function(){
+                    moveFish();
+                },500)
+
+            }
+        }
+
+        function addScore(){
+            if(playing==true){
+                // 점수 증가
+                count++;
+                $score.html(count);
+            }
+
+        }
+
+        function endGame(){
+            // 게임을 5초후에 종료시켜 줍니다.
+            setTimeout(function(){
+                playing=false;
+
+                clearInterval(timerID);
+                alert("게임이 종료 되었습니다.")
+            },5000)
+        }
+
+        function moveFish(){
+            var x = Math.floor(Math.random()*(panelWidth-fishWidth));
+            var y = Math.floor(Math.random()*(panelHeight-fishHeight));
+
+            $fish.css({
+                left:x,
+                top:y
+            })
+        }
 
 
 

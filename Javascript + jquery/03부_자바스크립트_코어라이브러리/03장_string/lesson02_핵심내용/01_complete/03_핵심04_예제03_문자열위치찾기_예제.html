@@ -1,6 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
+        <style>
+        #info {
+                width: 400px;
+                height: 200px;
+                text-align: center;
+                line-height: 200px;
+                vertical-align: center;
+                border: 2px solid #000;
+            }
+        </style>
 
         <script>
             /*
@@ -11,18 +21,19 @@
              */
             var data = window.prompt("문자를 입력해 주세요.");
             var index = data.indexOf("sample");
-            if (index >= 0)
+            var $info = $("#info");
+            if (index >= 0){
                 alert(index + "번째 위치에 있습니다.");
+                $info.text(index+"에 있음");
+            }
             else
                 alert("문자가 존재하지 않습니다.");
-
         </script>
 
     </head>
 
     <body>
         <div id="info">
-            0
         </div>
     </body>
 </html>

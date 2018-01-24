@@ -32,6 +32,11 @@
             var $menu = $(".menu");
             var menuData = "menu1,menu2,menu3,menu4";
             // 여기에 풀이를 입력해주세요.
+            var menuDatas = menuData.split(",");
+
+            for(var i=0;i<menuDatas.length;i++){
+                $menu.append("<li>"+menuDatas[i]+"</li>")
+            }
 
         })
 
@@ -39,9 +44,7 @@
 </head>
 <body>
     <ul class="menu">
-        <li>
-            메뉴1
-        </li>
+       
         <!-- 여기에 메뉴를 추가해 주세요 -->
     </ul>
 </body>

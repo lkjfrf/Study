@@ -53,10 +53,21 @@
              */
 
             var $fishs = null;
+            var timerID = 0;
 
             $(document).ready(function() {
-                $fishs = $(".fish");
 
+                init();
+                initFishPosition();
+                initEvent();
+            })
+
+            function init(){
+                $fishs = $(".fish");
+                var 
+            }
+            
+            function initFishPosition(){
                 // 물고기 배열 하기
                 for (var i = 0; i < $fishs.length; i++) {
                     var $fish = $fishs.eq(i);
@@ -66,7 +77,46 @@
                         top : 100 + (i * 150)
                     })
                 }
-            })
+            }
+
+            function initEvent(){
+                $("#start").click(function(){
+                    startGame();
+                })
+            }
+
+            function startGame(){
+                if(timerID == 0){
+                    timerID = setInterval(function(){
+                        updateFishPosition();
+                        displayFishPositionInfo();
+                        checkGoleFish();
+                    },500);
+                }
+            }
+            function updateFishPosition(){
+                
+            }
+            function displayFishPositionInfo(){
+
+            }
+            function checkGoleFish(){
+
+            }
+
+            function checkGoleFish(){
+
+                //endGame();
+            }
+
+            function endGame(){
+                alert("게임종료!" + "누구" + "승리!!");
+                
+            }
+
+
+
+
         </script>
 
     </head>

@@ -26,13 +26,24 @@
              3 8px solid #f00
 
              */
-            $(document).ready(function() {
+            /* $(document).ready(function() {
                 var $liList = $("ul.menu li");
                 for (var i = 0; i < $liList.length; i++) {
                     var $div = $liList.eq(i);
                     $liList.css("border", "4px solid #f00");
                 }
-            });
+            }); */
+
+            var index=0;
+            
+            $(document).ready(function(){
+                var $liList = $("ul.menu li");
+                for(var i=0; i < $liList.length; i++){
+                    var $li = $liList.eq(i);
+                    var borderpx = (index+2)*2;
+                    $li.css("border", borderpx+"px solid # f00");
+                }
+            })
         </script>
     </head>
     <body>

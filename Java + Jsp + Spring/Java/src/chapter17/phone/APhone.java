@@ -1,4 +1,4 @@
-package chapter17;
+package chapter17.phone;
 
 public class APhone implements IFunction{			// implements를 이용하여 인터페이스 연결,   implements는 abstract와 달리 여러개를 할 수 있음
 
@@ -20,6 +20,5 @@ public class APhone implements IFunction{			// implements를 이용하여 인터
 		System.out.println("미탑재 되었습니다.");
 		
 	}			
-	
 
 }

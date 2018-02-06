@@ -1,4 +1,4 @@
-package chapter17;
+package chapter17.phone;
 
 public interface IFunction {			// 보통 인터페이스 이름은 맨앞에 I를 대문자로 써서 넣음
 
